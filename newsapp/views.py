@@ -2,8 +2,9 @@
 from django.shortcuts import render
 from newsapi import NewsApiClient
 
+import config
 def index(request):
-    newsapi = NewsApiClient(api_key ='YOURAPIKEY')
+    newsapi = NewsApiClient(api_key = config.api_key)
     top = newsapi.get_top_headlines(sources ='techcrunch')
 
     l = top['articles']
