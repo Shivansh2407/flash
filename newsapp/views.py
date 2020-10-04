@@ -2,9 +2,9 @@
 from django.shortcuts import render
 from newsapi import NewsApiClient
 
-import config
+from .config import api_key
 def index(request):
-    newsapi = NewsApiClient(api_key = config.api_key)
+    newsapi = NewsApiClient(api_key = api_key)
     top = newsapi.get_top_headlines(sources ='techcrunch')
 
     l = top['articles']
@@ -18,5 +18,9 @@ def index(request):
         desc.append(f['description'])
         img.append(f['urlToImage'])
     mylist = zip(news, desc, img)
+    
+    context = {
+        "mylist":mylist
+    }
 
-    return render(request, 'index.html', context ={"mylist":mylist})
+    return render(request, 'index.html', context)
