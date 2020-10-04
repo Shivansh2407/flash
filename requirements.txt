@@ -1,0 +1,4 @@
+
+Django==2.1.7
+newsapi==0.1.1
+newsapi-python==0.2.6
