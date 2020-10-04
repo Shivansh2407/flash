@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Flash</title>
- 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
   </head>
   <body>
-    <div class="jumbotron" style="color:black">
- 
-      <h1 style ="color:white">
-   Get The latest news on our website
+    <!-- <div class="jumbotron" style="color: black">
+      <h1 style="color: black">
+        <center>Get the latest news on our website</center>
       </h1>
- 
+    </div> -->
+
+    <div>
+      <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-text w-100">
+          <h1 style="color: white; text-align: center;">T-News</h1>
+        </span>
+      </nav>
     </div>
- 
- 
+    <br />
+
     <div class="container">
-      {% for new, des, i in mylist %}
-              <img src="{{ i }}" alt="">
-              <h1>news:</h1> {{ new }}
-              {{ value|linebreaks }}
- 
-              <h4>description:</h4>{{ des }}
-              {{ value|linebreaks }}
- 
-      {% endfor %}
+      <center>
+        {% for new, des, i in mylist %}
+        <img src="{{ i }}" alt="Featured Image" /><br /><br />
+        <h3>{{ new }}</h3>
+        {{ value|linebreaks }}
+
+        <p>{{ des }}</p>
+        {{ value|linebreaks }}
+        <hr />
+        <br />
+
+        {% endfor %}
+      </center>
     </div>
- 
   </body>
 </html>
