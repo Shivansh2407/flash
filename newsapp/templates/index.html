@@ -15,13 +15,13 @@
     <title>Flash | Pocket-Friendly News Partner</title>
   </head>
   <body>
-	{% for new, des, i in mylist %}
+	{% for news, desc, img, url in mylist %}
 	<div class="card" style="width: 18rem;">
-		<img class="card-img-top" src="{{ i }}" alt="Breaking News">
+		<img class="card-img-top" src="{{ img }}" alt="Breaking News">
 		<div class="card-body">
-		  <h5 class="card-title">{{ new }}</h5>
-		  <p class="card-text">{{ des }}</p>
-		  <a href="#" class="btn btn-primary">More</a>
+		  <h5 class="card-title">{{ news }}</h5>
+		  <p class="card-text">{{ desc }}</p>
+		  <a href="{{ url }}" class="btn btn-primary">More</a>
 		</div>
 	  </div>
 	  {{ value|linebreaks }}

@@ -5,18 +5,20 @@ from newsapi import NewsApiClient
 import config
 def index(request):
     newsapi = NewsApiClient(api_key = config.api_key)
-    top = newsapi.get_top_headlines(sources ='techcrunch')
+    top = newsapi.get_top_headlines(country='in', category='technology')
 
     l = top['articles']
-    desc =[]
-    news =[]
-    img =[]
+    desc = []
+    news = []
+    img  = []
+    url  = []
 
     for i in range(len(l)):
         f = l[i]
         news.append(f['title'])
         desc.append(f['description'])
         img.append(f['urlToImage'])
-    mylist = zip(news, desc, img)
+        url.append(f['url'])
+    mylist = zip(news, desc, img, url)
 
     return render(request, 'index.html', context ={"mylist":mylist})
