@@ -28,6 +28,39 @@
     <title>Flash | Pocket-Friendly News Partner</title>
   </head>
   <body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Flash</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Top Headlines<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Technology<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Business<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+		      <a class="nav-link" href="#">Entertainment<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Health<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Sports<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Science<span class="sr-only">(current)</span></a>
+			</li>
+		  </ul>
+		</div>
+	  </nav>
+	  {{ value|linebreaks }}
 	{% for news, desc, img, url in mylist %}
 	<div class="card" style="width: 18rem;">
 		<img class="card-img-top" src="{{ img }}" alt="Breaking News" height="150px" >
