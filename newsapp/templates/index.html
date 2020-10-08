@@ -9,25 +9,40 @@
 	<style>
 	.card{
 		float: left;
+		margin-left: auto;
 	}
-	</style>
+	.card-text {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 
+	.card-title {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	}
+
+	</style>
+ 
     <title>Flash | Pocket-Friendly News Partner</title>
   </head>
   <body>
 	{% for news, desc, img, url in mylist %}
 	<div class="card" style="width: 18rem;">
-		<img class="card-img-top" src="{{ img }}" alt="Breaking News">
+		<img class="card-img-top" src="{{ img }}" alt="Breaking News" height="150px" >
 		<div class="card-body">
-		  <h5 class="card-title">{{ news }}</h5>
-		  <p class="card-text">{{ desc }}</p>
+		  <h5 id="news-title" class="card-title">{{ news }}</h5>
+		  <p id="news-desc" class="card-text">{{ desc }}</p>
 		  <a href="{{ url }}" class="btn btn-primary">More</a>
 		</div>
 	  </div>
+	  {{ value|linebreaks }}
 	  {{ value|linebreaks }}
 	  {% endfor %}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+
+</body>
 </html>
