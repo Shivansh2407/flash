@@ -1,33 +1,151 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Flash</title>
- 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<style>
+	.card{
+		float: left;
+		margin-left: auto;
+	}
+	.card-text {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.card-title {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	}
+
+	</style>
+ 
+    <title>Flash | Pocket-Friendly News Partner</title>
   </head>
   <body>
-    <div class="jumbotron" style="color:black">
- 
-      <h1 style ="color:white">
-   Get The latest news on our website
-      </h1>
- 
-    </div>
- 
- 
-    <div class="container">
-      {% for new, des, i in mylist %}
-              <img src="{{ i }}" alt="">
-              <h1>news:</h1> {{ new }}
-              {{ value|linebreaks }}
- 
-              <h4>description:</h4>{{ des }}
-              {{ value|linebreaks }}
- 
-      {% endfor %}
-    </div>
- 
-  </body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Flash</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="nav mr-auto">
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Top Headlines<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Technology<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Business<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+		      <a class="nav-link" href="#">Entertainment<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Health<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Sports<span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Science<span class="sr-only">(current)</span></a>
+			</li>
+			<form method = "post" action ="">
+				{% csrf_token %}
+			<select name="country" id="country">
+				<option value="0" label="Select a country ... " selected="IN">Select a country ... </option>
+				<optgroup id="country-optgroup-Africa" label="Africa">
+					<option value="EG" label="Egypt">Egypt</option>
+					<option value="MA" label="Morocco">Morocco</option>
+					<option value="NG" label="Nigeria">Nigeria</option>
+					<option value="ZA" label="South Africa">South Africa</option>
+				</optgroup>
+				<optgroup id="country-optgroup-Americas" label="Americas">
+					<option value="AR" label="Argentina">Argentina</option>
+					<option value="BR" label="Brazil">Brazil</option>
+					<option value="CA" label="Canada">Canada</option>
+					<option value="CO" label="Colombia">Colombia</option>
+					<option value="CU" label="Cuba">Cuba</option>
+					<option value="MX" label="Mexico">Mexico</option>
+					<option value="US" label="United States">United States</option>
+					<option value="VE" label="Venezuela">Venezuela</option>
+				</optgroup>
+				<optgroup id="country-optgroup-Asia" label="Asia">
+					<option value="CN" label="China">China</option>
+					<option value="HK" label="Hong Kong SAR China">Hong Kong SAR China</option>
+					<option value="IN" label="India">India</option>
+					<option value="ID" label="Indonesia">Indonesia</option>
+					<option value="IL" label="Israel">Israel</option>
+					<option value="JP" label="Japan">Japan</option>
+					<option value="MY" label="Malaysia">Malaysia</option><option value="PH" label="Philippines">Philippines</option>
+					<option value="SA" label="Saudi Arabia">Saudi Arabia</option>
+					<option value="SG" label="Singapore">Singapore</option>
+					<option value="KR" label="South Korea">South Korea</option>
+					<option value="TW" label="Taiwan">Taiwan</option>
+					<option value="TH" label="Thailand">Thailand</option>
+					<option value="TR" label="Turkey">Turkey</option>
+					<option value="AE" label="United Arab Emirates">United Arab Emirates</option>
+				</optgroup>
+				<optgroup id="country-optgroup-Europe" label="Europe">
+					<option value="AT" label="Austria">Austria</option>
+					<option value="BE" label="Belgium">Belgium</option>
+					<option value="BG" label="Bulgaria">Bulgaria</option>
+					<option value="CZ" label="Czech Republic">Czech Republic</option>
+					<option value="FR" label="France">France</option>
+					<option value="DE" label="Germany">Germany</option>
+					<option value="GR" label="Greece">Greece</option>
+					<option value="HU" label="Hungary">Hungary</option>
+					<option value="IE" label="Ireland">Ireland</option>
+					<option value="IT" label="Italy">Italy</option>
+					<option value="LV" label="Latvia">Latvia</option>
+					<option value="LT" label="Lithuania">Lithuania</option>
+					<option value="NL" label="Netherlands">Netherlands</option>
+					<option value="NO" label="Norway">Norway</option>
+					<option value="PL" label="Poland">Poland</option>
+					<option value="PT" label="Portugal">Portugal</option>
+					<option value="RO" label="Romania">Romania</option>
+					<option value="RU" label="Russia">Russia</option>
+					<option value="RS" label="Serbia">Serbia</option>
+					<option value="SK" label="Slovakia">Slovakia</option>
+					<option value="SI" label="Slovenia">Slovenia</option><option value="SE" label="Sweden">Sweden</option>
+					<option value="CH" label="Switzerland">Switzerland</option><option value="GB" label="United Kingdom">United Kingdom</option>
+				</optgroup>
+				<optgroup id="country-optgroup-Oceania" label="Oceania">
+					<option value="AU" label="Australia">Australia</option>
+					<option value="NZ" label="New Zealand">New Zealand</option>
+				</optgroup>
+			</select>
+		</form>
+		  </ul>
+		</div>
+	  </nav>
+	  {{ value|linebreaks }}
+	{% for news, desc, img, url in mylist %}
+	<div class="card" style="width: 18rem;">
+		<img class="card-img-top" src="{{ img }}" alt="Breaking News" height="150px" >
+		<div class="card-body">
+		  <h5 id="news-title" class="card-title">{{ news }}</h5>
+		  <p id="news-desc" class="card-text">{{ desc }}</p>
+		  <a href="{{ url }}" class="btn btn-primary">More</a>
+		</div>
+	  </div>
+	  {{ value|linebreaks }}
+	  {{ value|linebreaks }}
+	  {% endfor %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script> 
+	$('select').change(function(){
+		this.form.submit();
+	  });
+	</script> 
+</body>
 </html>
